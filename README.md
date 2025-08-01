@@ -23,7 +23,7 @@
 
 ---
 
-## 📸 Imagens do projeto
+## 📸 Imagens do projeto fluxo de BD
 
 <p align="center">
   <img src="img/Fluxo_BD.jpeg" width="600" alt="Fluxo BD">
