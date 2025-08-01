@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria do Marujo - As melhores pizzas com sabor do mar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pizza-card:hover .pizza-img {
+            transform: scale(1.05);
+        }
+        
+        .pizza-img {
+            transition: transform 0.3s ease;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .wave .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Imagem do WhatsApp de 2025-07-31 à(s) 12.04.25_6170a4e8.jpg" alt="Logo Pizzaria do Marujo" class="h-10 w-auto mr-2">
+                <h1 class="logo-font text-2xl md:text-3xl text-blue-600">Pizzaria do Marujo</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-blue-600 font-semibold hover:text-blue-800 transition">Início</a>
+                <a href="#menu" class="text-gray-600 hover:text-blue-600 transition">Cardápio</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition">Sobre</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition hidden md:block">
+                    Peça Online
+                </a>
+                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 py-3 shadow-md" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-blue-600 font-semibold hover:text-blue-800 transition">Início</a>
+                <a href="#menu" class="text-gray-600 hover:text-blue-600 transition">Cardápio</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition">Sobre</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contato</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition text-center">
+                    Peça Online
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32 relative" id="home">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 logo-font">Pizzaria do Marujo</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Sabores do mar em cada fatia, feitos com ingredientes frescos e amor de marinheiro!</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="#menu" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                    Ver Cardápio
+                </a>
+                <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                    Peça Agora
+                </a>
+            </div>
+        </div>
+        
+    <!-- <div class="wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>-->
+    </section>
+
+    <!-- Featured Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-fish text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ingredientes Frescos</h3>
+                    <p class="text-gray-600">Utilizamos apenas os melhores frutos do mar, pescados diariamente por nossos parceiros.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-pizza-slice text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Massas Artesanais</h3>
+                    <p class="text-gray-600">Nossa massa é preparada diariamente com fermentação natural para o melhor sabor.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shipping-fast text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Entrega Rápida</h3>
+                    <p class="text-gray-600">Entregamos em até 30 minutos ou sua pizza é grátis!*</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-16 bg-gray-50" id="menu">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nosso Cardápio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Sabores exclusivos que remetem ao mar e à tradição italiana</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pizza 1 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3" alt="Pizza Frutos do Mar" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Marinheira</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 59,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho de tomate, mussarela, camarão, lula, polvo, mexilhões e manjericão fresco.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pizza 2 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3" alt="Pizza Camarão" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Capitão</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 49,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho branco, mussarela, camarão grelhado, alho poró e queijo parmesão.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pizza 3 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3" alt="Pizza Atum" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Navegante</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 44,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho de tomate, atum, cebola roxa, azeitonas pretas e orégano.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pizza 4 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1604382354936-9c362faccfa6?ixlib=rb-4.0.3" alt="Pizza Calabresa" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Marujo Clássica</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 39,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho de tomate, mussarela, calabresa artesanal, cebola e azeitonas.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pizza 5 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3" alt="Pizza Margherita" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Margherita do Mar</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 37,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho de tomate, mussarela de búfala, tomate fresco, manjericão e azeite de oliva.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pizza 6 -->
+                <div class="pizza-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixlib=rb-4.0.3" alt="Pizza 4 Queijos" class="w-full h-64 object-cover pizza-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Quatro Mares</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">R$ 47,90</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Molho branco, mussarela, gorgonzola, parmesão, provolone e noz-moscada.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-full hover:bg-blue-700 transition">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                    Ver Cardápio Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white" id="about">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3" alt="Pizzaiolo preparando pizza" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Nossa História</h2>
+                    <p class="text-gray-600 mb-4">A Pizzaria do Marujo nasceu da paixão de um ex-marinheiro pela culinária italiana e pelos sabores do mar. Após anos navegando pelos mares do mundo, o Capitão João decidiu trazer para terra firme as melhores combinações que aprendeu em suas viagens.</p>
+                    <p class="text-gray-600 mb-6">Desde 2010, estamos servindo pizzas artesanais com ingredientes frescos e receitas exclusivas que remetem às tradições marítimas e italianas. Cada pizza é preparada com o mesmo cuidado que um marinheiro tem com seu navio.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-utensils text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Culinária Artesanal</h4>
+                                <p class="text-sm text-gray-600">Massas feitas diariamente</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-fish text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Frutos do Mar Frescos</h4>
+                                <p class="text-sm text-gray-600">Pescados localmente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">O que dizem nossos clientes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Avaliações de quem já experimentou nossas pizzas</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"A pizza Marinheira é incrível! Os frutos do mar estão sempre frescos e a combinação de sabores é perfeita. Minha favorita!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Ana Carolina</h4>
+                            <p class="text-sm text-gray-500">Cliente há 3 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"A entrega sempre chega quentinha e no tempo prometido. A pizza Capitão com camarão é divina, recomendo!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Ricardo Almeida</h4>
+                            <p class="text-sm text-gray-500">Cliente há 1 ano</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Ambiente aconchegante e atendimento excelente. A massa da pizza é perfeita, crocante por fora e macia por dentro."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Fernanda Souza</h4>
+                            <p class="text-sm text-gray-500">Cliente há 6 meses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-white" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tire suas dúvidas, faça reservas ou envie sugestões</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-bold mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Endereço</h4>
+                                    <p class="text-gray-600">Rua do Marujo, 123 - Praia do Sol<br>Florianópolis - SC</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Telefone</h4>
+                                    <p class="text-gray-600">(48) 3333-4444<br>(48) 99999-8888 (WhatsApp)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Horário de Funcionamento</h4>
+                                    <p class="text-gray-600">Terça a Quinta: 18h - 23h<br>Sexta e Sábado: 18h - 00h<br>Domingo: 18h - 22h</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">contato@pizzariadomarujo.com.br</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Siga-nos nas redes sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-700 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-blue-400 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-700 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.997722658635!2d-48.549588924687!3d-27.59492387624186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952738248efc6a51%3A0x559a9e7e1b5e5a1f!2sPraia%20do%20Sol%2C%20Florian%C3%B3polis%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1689870433776!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-anchor text-2xl text-blue-400 mr-2"></i>
+                        <h3 class="logo-font text-2xl text-blue-400">Pizzaria do Marujo</h3>
+                    </div>
+                    <p class="text-gray-400">Sabores do mar em cada fatia, feitos com ingredientes frescos e amor de marinheiro!</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Início</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition">Cardápio</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contato</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Peça Online</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Horário de Funcionamento</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Terça a Quinta: 18h - 23h</li>
+                        <li>Sexta e Sábado: 18h - 00h</li>
+                        <li>Domingo: 18h - 22h</li>
+                        <li>Segunda: Fechado</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Assine nossa newsletter para receber promoções e novidades!</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Pizzaria do Marujo. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#" class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to pizza cards when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.pizza-card').forEach(card => {
+            observer.observe(card);
+            card.style.opacity = '0';
+            card.classList.add('transition-opacity', 'duration-500');
+        });
+
+        // Animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeIn {
+                animation: fadeIn 0.6s ease forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
